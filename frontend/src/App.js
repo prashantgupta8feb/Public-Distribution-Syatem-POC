@@ -3,6 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import DistributionForm from './components/Dashboard';
+import RegistrationForm from './components/RegistrationForm'; 
+
 
 const App = () => {
   return (
@@ -12,8 +14,12 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={DistributionForm} />
           {/* Add routes for New Registration, User Login, and Status of Request */}
+          <Route path="/new-registration" exact component={RegistrationForm}/>
+          {/* Add other routes if needed */}
         </Switch>
-      </div>
+       </div>
+       // src/App.js
+<      Route path="/new-registration" component={RegistrationForm} />
     </Router>
   );
 };
