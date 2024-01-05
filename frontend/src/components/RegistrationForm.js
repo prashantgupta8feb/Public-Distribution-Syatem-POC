@@ -1,79 +1,102 @@
 // RegistrationForm.js
-import React from 'react';
+import React, { useState } from 'react';
+import './RegistrationForm.css'; // Import your CSS file for styling
 
-const RegistrationForm = () => (
-  <div>
-    <div className="divState">
-      Please select state:
-      <select name="cars" id="cars">
-        <option value="Delhi">Delhi</option>
-        <option value="Uttar pradesh">Uttar Pradesh</option>
-        <option value="Uttrakhand">Uttrakhand</option>
-        <option value="Punjab">Punjab</option>
-      </select>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Please select District:
-      <select name="District" id="District">
-        <option value="select District">Select District</option>
-      </select>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Please select Tehsil:
-      <select name="Tehsil" id="Tehsil">
-        <option value="select Tehsil">Select Tehsil</option>
-      </select>
-    </div>
-    <br />
-    <div className="divFPSShop">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      Please select FPS Shop:
-      <select name="FPS" id="FPS">
-        <option value="MS/Test1">MS/Test1</option>
-        <option value="MS/Test2">MS/Test2</option>
-      </select>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </div>
-    <br />
-    <div>
-      <div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+const RegistrationForm = () => {
+  const [formData, setFormData] = useState({
+    state: '',
+    district: '',
+    tehsil: '',
+    fpsShop: '',
+    applicantName: '',
+    fatherHusbandName: '',
+    mobileNo: '',
+    address: '',
+    income: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  return (
+    <div className="registration-form">
+      <div className="form-section">
         <label>
-          Applicant name:-
-          <input type="text" />
+          State:
+          <select name="state" value={formData.state} onChange={handleInputChange}>
+            <option value="">Select State</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttrakhand">Uttrakhand</option>
+            <option value="Punjab">Punjab</option>
+          </select>
         </label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
         <label>
-          Father/Husband Name:-
-          <input type="text" />
+          District:
+          <select name="district" value={formData.district} onChange={handleInputChange}>
+            <option value="">Select District</option>
+            {/* Add district options */}
+          </select>
         </label>
-      </div>
-      <br />
-      <div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
         <label>
-          Mobile No:-
-          <input type="tel" />
-        </label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          Address:-
-          <textarea type=""></textarea>
+          Tehsil:
+          <select name="tehsil" value={formData.tehsil} onChange={handleInputChange}>
+            <option value="">Select Tehsil</option>
+            {/* Add tehsil options */}
+          </select>
         </label>
       </div>
-      <br />
-      <div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;
+
+      <div className="form-section">
         <label>
-          Income (RS):-
-          <input type="number" />
+          FPS Shop:
+          <select name="fpsShop" value={formData.fpsShop} onChange={handleInputChange}>
+            <option value="">Select FPS Shop</option>
+            <option value="MS/Test1">MS/Test1</option>
+            <option value="MS/Test2">MS/Test2</option>
+          </select>
+        </label>
+      </div>
+
+      <div className="form-section">
+        <label>
+          Applicant Name:
+          <input type="text" name="applicantName" value={formData.applicantName} onChange={handleInputChange} />
+        </label>
+
+        <label>
+          Father/Husband Name:
+          <input type="text" name="fatherHusbandName" value={formData.fatherHusbandName} onChange={handleInputChange} />
+        </label>
+      </div>
+
+      <div className="form-section">
+        <label>
+          Mobile No:
+          <input type="tel" name="mobileNo" value={formData.mobileNo} onChange={handleInputChange} />
+        </label>
+
+        <label>
+          Address:
+          <textarea name="address" value={formData.address} onChange={handleInputChange} />
+        </label>
+      </div>
+
+      <div className="form-section">
+        <label>
+          Income (RS):
+          <input type="number" name="income" value={formData.income} onChange={handleInputChange} />
         </label>
       </div>
     </div>
-  </div>
-);     
+  );
+};
+
 export default RegistrationForm;
