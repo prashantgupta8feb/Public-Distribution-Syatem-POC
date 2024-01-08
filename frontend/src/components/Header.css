@@ -1,0 +1,15 @@
+/* src/components/Header.css */
+/* Adjustments to make the header wider for the full page and thinner */
+header {
+    max-width: 1200px; /* Adjust the max-width as needed */
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  nav {
+    max-width: 800px; /* Adjust the max-width as needed */
+    margin: 0 auto;
+  }
+  
+  /* Additional styling can be added as needed */
+  

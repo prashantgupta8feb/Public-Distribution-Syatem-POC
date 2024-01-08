@@ -1,45 +1,139 @@
-/* RegistrationForm.css */
+/* src/components/RegistrationForm.css */
 
-.registration-form {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-section {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  font-size: 2rem;
+  color: #333;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 30px;
+}
+
+.input-box {
+  margin-top: 20px;
+
   label {
+    color: #333;
     display: block;
     margin-bottom: 8px;
   }
-  
-  select,
+
   input,
-  textarea {
+  select {
+    height: 50px;
     width: 100%;
-    padding: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    box-sizing: border-box;
   }
-  
-  button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+
+  input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   }
-  
-  button:hover {
-    background-color: #45a049;
+}
+
+.column {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+
+  > * {
+    flex: 1;
+    margin-right: 15px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
-  
+}
+
+.gender-box {
+  margin-top: 20px;
+
+  h3 {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .gender-option {
+    display: flex;
+    align-items: center;
+
+    input,
+    label {
+      cursor: pointer;
+      margin-right: 5px;
+    }
+
+    label {
+      color: #333;
+      font-size: 1rem;
+    }
+  }
+}
+
+.address,
+.select-box select {
+  margin-top: 15px;
+}
+
+select {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #333;
+  font-size: 1rem;
+}
+
+button {
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  background: rgb(130, 106, 251);
+  border-radius: 6px;
+}
+
+button:hover {
+  background: rgb(88, 56, 250);
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+  .column {
+    flex-direction: column;
+    margin-right: 0;
+  }
+}
