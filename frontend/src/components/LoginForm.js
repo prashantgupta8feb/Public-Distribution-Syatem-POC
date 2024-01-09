@@ -1,45 +1,9 @@
-// import React from "react";
-// import './LoginForm.css';
-// import { FaUser,FaLock } from "react-icons/fa";
-
-// const LoginForm = () =>{
-//     return(
-//         <div className='wrapper'>
-//             <form action="">
-//                 <h1>Login</h1>
-//                 <div className="input-box">
-//                     <input type="text" placeholder='Username' required />
-//                     <FaUser className="icon" />
-//                 </div>
-//                 <div className="input-box">
-//                     <input type="password" placeholder='Password' required />
-//                     <FaLock className="icon"/>
-//                 </div>
-
-//                 <div className="remember-forgot">
-//                     <label><input type="checkbox" />Remember me</label>
-//                     <a href="#">Forgot Password?</a>
-//                 </div>
-
-//                 <button type="submit">Login</button>
-
-//                 <div className="register-link">
-//                     <p> Don't have an account?<a href="/sign-up">Register</a></p>
-//                 </div>
-               
-//             </form>
-//         </div>
-//     );
-// };
-
-// export default LoginForm;
-
 import React, { useState } from "react";
 import './LoginForm.css';
 import { FaUser, FaLock } from "react-icons/fa";
 
 
-const Login = () => {
+const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -87,6 +51,7 @@ const Login = () => {
       <form onSubmit={handleLogin}>
         <h1>Login</h1>
         <div className="input-box">
+        <FaUser className="icon" />
           <input
             type="email"
             placeholder='Email'
@@ -94,9 +59,10 @@ const Login = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <FaUser className="icon" />
+         
         </div>
         <div className="input-box">
+        <FaLock className=" icon"/>
           <input
             type="password"
             placeholder='Password'
@@ -104,7 +70,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <FaLock className="icon"/>
+          
         </div>
         <button type="submit">Login</button>
 
@@ -122,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginForm;
