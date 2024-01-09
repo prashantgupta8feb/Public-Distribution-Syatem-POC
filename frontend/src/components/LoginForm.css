@@ -1,0 +1,50 @@
+ /* .wrapper {
+    margin-top: 50px;
+    margin-left:auto;
+    margin-right: auto;
+    text-align: center;
+    width: 300px;
+    height:320px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color:#dde2e5;
+    padding-left: 12%;
+    padding-right: 12%;
+  
+}  */
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  .input-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .icon {
+    margin-right: 10px;
+    font-size: 1.5rem; /* Set the desired font size for the icons */
+  }
+  
+  .remember-forgot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Add this line to make sure the entire width is utilized */
+    margin-bottom: 15px;
+  }
+  
+  .remember-forgot label {
+    margin-right: 10px;
+  }
+   
+ 
+  
+  
