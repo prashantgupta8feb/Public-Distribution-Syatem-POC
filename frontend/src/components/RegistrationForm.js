@@ -186,44 +186,45 @@ const RegistrationForm = () => {
           </div>
         </div>
 
-        <div className="input-box">
+        <div className="Registrationinputbox">
           <label className="label">Full Name</label>
           <input type="text" placeholder="Enter full name" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
         </div>
 
-        <div className="input-box">
+        <div className="Registrationinputbox">
           <label className="label">Email Address</label>
           <input type="text" placeholder="Enter email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
 
         <div className="column">
-          <div className="input-box">
+          <div className="Registrationinputbox">
             <label className="label">Phone Number</label>
             <input  placeholder="Enter phone number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
           </div>
-          <div className="input-box">
+          <div className="Registrationinputbox">
             <label className="label">Birth Date</label>
             <input type="date" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} required />
           </div>
         </div>
 
         <div className="column">
-          <div className="input-box">
+          <div className="Registrationinputbox">
             <label className="label">Annual Family income</label>
             <input type="number" placeholder="Enter Family incode"  required />
           </div>
-          <div className="input-box">
+          <div className="Registrationinputbox">
             <label className="label">No of family member(count)</label>
             <input type="number"  required />
           </div>
         </div>
 
         <div className="gender-box">
-          <h3 className="label">Gender</h3>
+          
           <div className="gender-option">
+          Gender &nbsp;&nbsp;&nbsp;:&nbsp;
             <div className="gender">
               <input type="radio" id="check-male" name="gender" checked={gender === 'male'} onChange={() => setGender('male')} />
-              <label htmlFor="check-male">male</label>
+              <label htmlFor="check-male">Male</label>
             </div>
             <div className="gender">
               <input type="radio" id="check-female" name="gender" checked={gender === 'female'} onChange={() => setGender('female')} />
@@ -231,12 +232,12 @@ const RegistrationForm = () => {
             </div>
             <div className="gender">
               <input type="radio" id="check-other" name="gender" checked={gender === 'other'} onChange={() => setGender('other')} />
-              <label htmlFor="check-other">prefer not to say</label>
+              <label htmlFor="check-other">Prefer not to say</label>
             </div>
           </div>
         </div>
 
-        <div className="input-box address">
+        <div className="Registrationinputbox address">
           <label className="label">Street Address</label>
           <input type="text" placeholder="Enter street address" value={streetAddress1} onChange={(e) => setStreetAddress1(e.target.value)} required />
           <input type="text" placeholder="Enter street address line 2" value={streetAddress2} onChange={(e) => setStreetAddress2(e.target.value)} required />
