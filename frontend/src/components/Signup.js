@@ -31,6 +31,7 @@
 //export default Signup;
 import React, { useState } from "react";
 import './Signup.css';
+import { MdEmail } from "react-icons/md";
 import { FaUser, FaLock } from "react-icons/fa";
 
 const Signup = () => {
@@ -56,11 +57,10 @@ const Signup = () => {
   };
 
   return (
-    <div className='wrapper'>
+    <div className='signup-wrapper'>
       <form onSubmit={handleSignup}>
         <h1>Sign Up</h1>
-        <div className="input-box">
-        <FaUser className="icon" />
+        <div className="signup-input-box" >
           <input
             type="text"
             placeholder='Username'
@@ -70,8 +70,7 @@ const Signup = () => {
           />
           
         </div>
-        <div className="input-box">
-        <FaUser className="icon" />
+        <div className="signup-input-box">
           <input
             type="text"
             placeholder='Email'
@@ -81,8 +80,7 @@ const Signup = () => {
           />
           
         </div>
-        <div className="input-box">
-        <FaLock className="icon"/>
+        <div className="signup-input-box">
           <input
             type="password"
             placeholder='Password'
@@ -95,7 +93,7 @@ const Signup = () => {
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
 
-        <button type="submit">Sign up</button>
+        <button className="signup-button" type="submit">Sign up</button>
 
         <div className="register-link">
           <p>Already have an account?<a href="/user-login">Login</a></p>
