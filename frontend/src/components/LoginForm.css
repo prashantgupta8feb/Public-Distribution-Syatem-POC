@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  
+  .input-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .icon {
+    margin-right: 10px;
+    font-size: 1.5rem; /* Set the desired font size for the icons */
+  }
+  
+  .remember-forgot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Add this line to make sure the entire width is utilized */
+    margin-bottom: 15px;
+  }
+  
+  .remember-forgot label {
+    margin-right: 10px;
+  }
+   
+ 
+  
+  

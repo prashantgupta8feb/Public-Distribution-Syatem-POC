@@ -58,9 +58,9 @@ const Header = () => {
           <BiUser size={20} />
           <span>User Login</span>
         </StyledLink>
-        <StyledLink to="/status" title="Status of Request">
+        <StyledLink to="/application-status" title="Status of Request">
           <BiClipboard size={20} />
-          <span>Status</span>
+          <span>Application Status</span>
         </StyledLink>
       </StyledNav>
     </StyledHeader>

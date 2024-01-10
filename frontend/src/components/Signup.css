@@ -1,0 +1,21 @@
+.wrapper {
+    margin-top: 50px;
+    margin-left:300px;
+    margin-right: 200px;
+    text-align: center;
+    width: 300px;
+    height:auto;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color:#dde2e5;
+    padding-left: 12%;
+    padding-right: 12%;
+  
+
+}
+.icon {
+  margin-right: 10px;
+  font-size: 1.5rem; /* Set the desired font size for the icons */
+}
