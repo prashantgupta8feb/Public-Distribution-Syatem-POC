@@ -11,7 +11,7 @@ const ForgotPassword = () => {
 
   return (
     <div className='forgot-password-wrapper'>
-      <form onSubmit={handlePasswordRecovery}>
+      <form onSubmit={handlePasswordRecovery} className='forgot-password-form'>
         <h2>Forgot Password</h2>
         <div className="forgot-password-input-box">
           <label></label>

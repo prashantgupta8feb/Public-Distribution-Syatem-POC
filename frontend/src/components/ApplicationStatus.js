@@ -11,7 +11,7 @@ const ApplicationStatus = () => {
 
   return (
     <div className='application-status-wrapper'>
-      <form onSubmit={handleApplicationStatus}>
+      <form onSubmit={handleApplicationStatus} className='application-status-form'>
         <h2>Track Application Status</h2>
         <div className="application-status-input-box">
           <label></label>
