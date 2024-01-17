@@ -1,5 +1,6 @@
 // src/components/RegistrationForm.js
 import React, { useEffect, useState } from 'react';
+import axios from 'axios'; 
 import './RegistrationForm.css';
 
 const RegistrationForm = () => {
@@ -48,12 +49,10 @@ const RegistrationForm = () => {
   ]
 
   
-  const [state, setState] = useState([]);
-  const [District, setDistrict] = useState('');
-  const [Tehsil, setTehsil] = useState('');
+  const [State, setState] = useState('');
+  const [district, setDistrict] = useState('');
+  const [tehsil, setTehsil] = useState('');
   const [fpsShop, setFpsShop] = useState('');
-  
-
   
 
   useEffect(() => {
@@ -92,11 +91,10 @@ const RegistrationForm = () => {
   const [postalCode, setPostalCode] = useState('');  
   
 
-  const handleSubmit = (e) => {
-
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', {
+
+    const registrationData = {
       fullName,
       email,
       phoneNumber,
@@ -104,11 +102,37 @@ const RegistrationForm = () => {
       gender,
       streetAddress1,
       streetAddress2,
+      State: 'state',
       region,
       postalCode,
-      Tehsil,
-      Fpsshop,
-    });
+      district: 'district',
+      tehsil: 'tehsil',
+      fpsShop: 'fpsShop',
+    };
+    
+  
+    try {
+     // alert('calling api')
+      const response = await axios.post('https://localhost:7249/api/register', registrationData);
+      alert(`User registered with ID: ${response.data.id}`);
+  
+      // Reset form fields after successful registration
+      setFullName('');
+      setEmail('');
+      setPhoneNumber('');
+      setBirthDate('');
+      setGender('male');
+      setStreetAddress1('');
+      setStreetAddress2('');
+      setRegion('');
+      setPostalCode('');
+      setTehsil('');
+      setFpsShop('');
+      setState('');
+      setDistrict('');
+    } catch (error) {
+      console.error('Error registering:', error);
+    }
   };
 
 
@@ -138,9 +162,9 @@ const RegistrationForm = () => {
             <select onChange={(e) => handledistrict(e.target.value)}>
               <option value="0">Select District</option>
               {
-                District &&
-                District !== undefined ?
-                District.map((ctr, index) => {
+                district &&
+                district !== undefined ?
+                district.map((ctr, index) => {
                     return (
                       <option key={index} value={ctr.id}>{ctr.name}</option>
                     )
@@ -156,9 +180,9 @@ const RegistrationForm = () => {
             <select id="ddlCity" onChange={(e) => handleTehsil(e.target.value)} >
               <option value="0">Select Tehsil</option>
               {
-                Tehsil &&
-                  Tehsil !== undefined ?
-                  Tehsil.map((ctr, index) => {
+                tehsil &&
+                  tehsil !== undefined ?
+                  tehsil.map((ctr, index) => {
                     return (
                       <option key={index} value={ctr.id}>{ctr.name}</option>
                     )
