@@ -1,0 +1,6 @@
+@RCMS.webapi_HostAddress = http://localhost:5114
+
+GET {{RCMS.webapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
