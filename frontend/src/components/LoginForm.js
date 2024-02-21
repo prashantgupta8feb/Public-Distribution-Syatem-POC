@@ -1,11 +1,14 @@
 // Login.js
 import React, { useState } from "react";
+import axios from 'axios';
 import './LoginForm.css';
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loginData, setLoginData] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
@@ -13,37 +16,39 @@ const LoginForm = () => {
     e.preventDefault();
 
     // Basic validation
-    if (!username || !password) {
-      setError('Please enter both username and password.');
+    if (!email || !password) {
+      setError('Please enter both email and password.');
       return;
     }
 
-    // Basic email validation
+    //Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(username)) {
+    if (!emailRegex.test(email)) {
       setError('Please enter a valid email address.');
       return;
     }
 
-    // Mock login logic (replace with your actual server logic)
     try {
-      // Make an API request to authenticate the user
-      // const response = await yourAuthenticationAPI.login({ username, password });
-
-      // Assuming a successful login
-      // if (response.success) {
-      //   setError('');
-      //   // Redirect or perform necessary actions on successful login
-      // } else {
-      //   setError('Invalid credentials. Please try again.');
-      // }
-
-      // Placeholder: Simulate a successful login
+      const response = await axios.post(`https://localhost:44386/api/auth/login`,{
+        email: email,
+        password: password
+      });
+      
+      setLoginData(response.data);
+      
+      
+      // Redirect or do any further action upon successful login
+      alert(`${response.data.username} successfully logged in!`);
+      setEmail('');
+      setPassword('');
       setError('');
-      console.log('Successfully logged in!');
     } catch (error) {
-      setError('Invalid credentials. Please try again.');
+      // Handle login error
+      console.log('Login failed:',error);
+      alert('Invalid username or password');
+      setError('Invalid username or password');
     }
+    
   };
 
   return (
@@ -52,11 +57,11 @@ const LoginForm = () => {
         <h1>Login</h1>
         <div className="login-input-box">
           <input
-            type="email"
+            type="text"
             placeholder='Email'
             required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="login-input-box">
@@ -75,11 +80,6 @@ const LoginForm = () => {
         <button className="login-button" type="submit">Login</button>
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
-
-        <div className="remember-forgot">
-          <p><a href="forgot-password">Forgot Password?</a></p>
-        </div>
-
         <div className="register-link">
           <p> Don't have an account?&nbsp;&nbsp;&nbsp;<a href="/sign-up">Sign-Up</a></p>
         </div>
