@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\RCMS_POC\\POC\\Backend\\RCMS.webapi\\RCMS.webapi.csproj": {}
+    "C:\\Users\\pprashant\\Desktop\\POC\\POC\\Backend\\RCMS.webapi\\RCMS.webapi.csproj": {}
   },
   "projects": {
-    "C:\\RCMS_POC\\POC\\Backend\\RCMS.webapi\\RCMS.webapi.csproj": {
+    "C:\\Users\\pprashant\\Desktop\\POC\\POC\\Backend\\RCMS.webapi\\RCMS.webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\RCMS_POC\\POC\\Backend\\RCMS.webapi\\RCMS.webapi.csproj",
+        "projectUniqueName": "C:\\Users\\pprashant\\Desktop\\POC\\POC\\Backend\\RCMS.webapi\\RCMS.webapi.csproj",
         "projectName": "RCMS.webapi",
-        "projectPath": "C:\\RCMS_POC\\POC\\Backend\\RCMS.webapi\\RCMS.webapi.csproj",
-        "packagesPath": "C:\\Users\\hkant\\.nuget\\packages\\",
-        "outputPath": "C:\\RCMS_POC\\POC\\Backend\\RCMS.webapi\\obj\\",
+        "projectPath": "C:\\Users\\pprashant\\Desktop\\POC\\POC\\Backend\\RCMS.webapi\\RCMS.webapi.csproj",
+        "packagesPath": "C:\\Users\\pprashant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pprashant\\Desktop\\POC\\POC\\Backend\\RCMS.webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hkant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pprashant\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -37,30 +37,24 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "Microsoft.AspNetCore.Datasync.EFCore": {
               "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[6.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.3.1, )"
             }
           },
           "imports": [
@@ -69,8 +63,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -82,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

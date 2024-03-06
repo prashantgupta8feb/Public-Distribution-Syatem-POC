@@ -5,18 +5,7 @@ import './RegistrationForm.css';
 
 const RegistrationForm = () => {
 
-  // const countries = [
-  //   {id:"1",name:"INDIA"},
-  //   {id:"2",name:"USA"}
-  // ];
-
-  // const states = [
-  //   {id:"1",countryId:"1",name:"Haryana"},
-  //   {id:"2",countryId:"1",name:"Delhi"},
-  //   {id:"3",countryId:"2",name:"Texas"},
-  //   {id:"4",countryId:"2",name:"California"}
-  // ]
-
+  
   const states = [    
     { id: "1", name: "Haryana" },
     { id: "2", name: "Delhi" },
@@ -49,35 +38,37 @@ const RegistrationForm = () => {
   ]
 
   
-  const [State, setState] = useState('');
-  const [district, setDistrict] = useState('');
-  const [tehsil, setTehsil] = useState('');
-  const [fpsShop, setFpsShop] = useState('');
   
 
   useEffect(() => {
     setState();
   }, [])
 
-  const handlestate = (id) => {
-    const dtdist = districts.filter(x => x.stateId === id);
-    console.log(id)
+  const handlestate = (e) => {            
+    setState(e.target.selectedOptions[0].text);
+    const dtdist = districts.filter(x => x.stateId === e.target.value);    
     setDistrict(dtdist)    
     setTehsil('')
     setFpsShop('')
   }
 
-  const handledistrict = (id) => {
-    const dt = tehsils.filter(x => x.districtId === id);
-    setTehsil(dt)
+  const handledistrict = (e) => {    
+    //alert(`on district of State: ${e.target.options[e.target.selectedIndex].text}`);  
+    setDistrict1(e.target.options[e.target.selectedIndex].text);   
+    const dt = tehsils.filter(x => x.districtId === e.target.value);        
+    setTehsil(dt)    
     setFpsShop('')
   }
 
-  const handleTehsil = (id) => {
-    const dt = Fpsshop.filter(x => x.tehsilId === id);
+  const handleTehsil = (e) => {
+    setTehsil1(e.target.options[e.target.selectedIndex].text);   
+    const dt = Fpsshop.filter(x => x.tehsilId === e.target.value);
     setFpsShop(dt)
   }
 
+  const handleFPS = (e) => {
+    setFpsShop1(e.target.options[e.target.selectedIndex].text);       
+  }
 
 
   const [fullName, setFullName] = useState('');
@@ -89,6 +80,13 @@ const RegistrationForm = () => {
   const [streetAddress2, setStreetAddress2] = useState('');
   const [region, setRegion] = useState('');
   const [postalCode, setPostalCode] = useState('');  
+  const [State, setState] = useState('');
+  const [district, setDistrict] = useState('');
+  const [tehsil, setTehsil] = useState('');
+  const [fpsShop, setFpsShop] = useState('');
+  const [district1, setDistrict1] = useState('');
+  const [tehsil1, setTehsil1] = useState('');
+  const [fpsShop1, setFpsShop1] = useState('');
   
 
   const handleSubmit = async (e) => {
@@ -102,18 +100,18 @@ const RegistrationForm = () => {
       gender,
       streetAddress1,
       streetAddress2,
-      State: 'state',
+      State,
       region,
       postalCode,
-      district: 'district',
-      tehsil: 'tehsil',
-      fpsShop: 'fpsShop',
+      district1,
+      tehsil1,
+      fpsShop1,
     };
     
   
     try {
      // alert('calling api')
-      const response = await axios.post('https://localhost:7249/api/register', registrationData);
+      const response = await axios.post('https://localhost:44386/api/register', registrationData);
       alert(`User registered with ID: ${response.data.id}`);
   
       // Reset form fields after successful registration
@@ -138,78 +136,9 @@ const RegistrationForm = () => {
 
 
   return (
-    <section className="container">
-      <header>Registration Form</header>
-      <form onSubmit={handleSubmit} className="form">
-      <div className="column">
-          <div className="select-box">
-            <select onChange={(e) => handlestate(e.target.value)}>
-              <option value="0">Select State</option>
-              {
-                states &&
-                  states !== undefined ?
-                  states.map((ctr, index) => {
-                    return (
-                      <option key={index} value={ctr.id}>{ctr.name}</option>
-                    )
-                  })
-                  : "No State"
-
-              }
-            </select>
-          </div>
-          <div className="select-box">
-            <select onChange={(e) => handledistrict(e.target.value)}>
-              <option value="0">Select District</option>
-              {
-                district &&
-                district !== undefined ?
-                district.map((ctr, index) => {
-                    return (
-                      <option key={index} value={ctr.id}>{ctr.name}</option>
-                    )
-                  })
-                  : "No District"
-
-              }
-            </select>
-          </div>
-        </div>
-        <div className="column">
-          <div className="select-box">
-            <select id="ddlCity" onChange={(e) => handleTehsil(e.target.value)} >
-              <option value="0">Select Tehsil</option>
-              {
-                tehsil &&
-                  tehsil !== undefined ?
-                  tehsil.map((ctr, index) => {
-                    return (
-                      <option key={index} value={ctr.id}>{ctr.name}</option>
-                    )
-                  })
-                  : "No City"
-
-              }
-            </select>
-          </div>
-          <div className="select-box">
-          <select id="ddlCity" >
-              <option value="0">Select FPS shop</option>
-              {
-                fpsShop &&
-                fpsShop !== undefined ?
-                fpsShop.map((ctr, index) => {
-                    return (
-                      <option key={index} value={ctr.id}>{ctr.name}</option>
-                    )
-                  })
-                  : "No City"
-
-              }
-            </select>
-          </div>
-        </div>
-
+    <section className="container">      
+      <label className="Regheader">Application Registration</label>
+      <form onSubmit={handleSubmit} className="form">      
         <div className="Registrationinputbox">
           <label className="label">Full Name</label>
           <input type="text" placeholder="Enter full name" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
@@ -234,7 +163,7 @@ const RegistrationForm = () => {
         <div className="column">
           <div className="Registrationinputbox">
             <label className="label">Annual Family income</label>
-            <input type="number" placeholder="Enter Family incode"  required />
+            <input type="number" placeholder="Enter Family income"  required />
           </div>
           <div className="Registrationinputbox">
             <label className="label">No of family member(count)</label>
@@ -256,13 +185,82 @@ const RegistrationForm = () => {
             </div>
             <div className="gender">
               <input type="radio" id="check-other" name="gender" checked={gender === 'other'} onChange={() => setGender('other')} />
-              <label htmlFor="check-other">Prefer not to say</label>
+              <label htmlFor="check-other">not to say</label>
             </div>
           </div>
         </div>
+        <br></br>
+        <label className="label">Street Address</label>
+        <div className="column">
+          <div className="select-box">            
+            <select onChange={(e) => handlestate(e)}>
+              <option value="0">Select State</option>
+              {
+                states &&
+                  states !== undefined ?
+                  states.map((ctr, index) => {
+                    return (
+                      <option key={index} value={ctr.id}>{ctr.name}</option>
+                    )
+                  })
+                  : "No State"
 
-        <div className="Registrationinputbox address">
-          <label className="label">Street Address</label>
+              }
+            </select>
+          </div>
+          <div className="select-box">
+            <select onChange={(e) => handledistrict(e)}>
+              <option value="0" >Select District</option>
+              {
+                district &&
+                district !== undefined ?
+                district.map((ctr, index) => {
+                    return (
+                      <option key={index} value={ctr.id}>{ctr.name}</option>
+                    )
+                  })
+                  : "No District"
+
+              }
+            </select>
+          </div>
+        </div>
+        <div className="column">
+          <div className="select-box">
+            <select id="ddlCity" onChange={(e) => handleTehsil(e)} >
+              <option value="0">Select Tehsil</option>
+              {
+                tehsil &&
+                  tehsil !== undefined ?
+                  tehsil.map((ctr, index) => {
+                    return (
+                      <option key={index} value={ctr.id}>{ctr.name}</option>
+                    )
+                  })
+                  : "No City"
+
+              }
+            </select>
+          </div>
+          <div className="select-box">
+          <select id="ddlCity" onChange={(e) => handleFPS(e)}>
+              <option value="0">Select FPS shop</option>
+              {
+                fpsShop &&
+                fpsShop !== undefined ?
+                fpsShop.map((ctr, index) => {
+                    return (
+                      <option key={index} value={ctr.id}>{ctr.name}</option>
+                    )
+                  })
+                  : "No City"
+
+              }
+            </select>
+          </div>
+        </div>
+
+        <div className="Registrationinputbox address">          
           <input type="text" placeholder="Enter street address" value={streetAddress1} onChange={(e) => setStreetAddress1(e.target.value)} required />
           <input type="text" placeholder="Enter street address line 2" value={streetAddress2} onChange={(e) => setStreetAddress2(e.target.value)} required />
         </div>

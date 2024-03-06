@@ -12,7 +12,7 @@ const ApplicationStatus = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.get(`https://localhost:7249/api/register/${applicationNumber}`);
+      const response = await axios.get(`https://localhost:44386/api/register/${applicationNumber}`);
       setApplicationData(response.data);
       setError(null);
     } catch (error) {

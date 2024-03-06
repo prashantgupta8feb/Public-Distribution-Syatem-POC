@@ -8,6 +8,7 @@ import ForgotPassword from './components/ForgotPassword';
 import DistributionForm from './components/Dashboard';
 import RegistrationForm from './components/RegistrationForm';
 import ApplicationStatus from './components/ApplicationStatus';
+import ApproveApplication from './components/ApproveApplication';
 
 const RoutesComponent = () => {
   return (
@@ -18,8 +19,8 @@ const RoutesComponent = () => {
         <Route path="/" element={<DistributionForm />} />
         <Route path="user-login" element={<LoginForm />} />
         <Route path="sign-up" element={<Signup />} />
-        <Route path="forgot-password" element={<ForgotPassword />} />
         <Route path="application-status" element={<ApplicationStatus />} />
+        <Route path="approve-application" element={<ApproveApplication />}/>
         {/* Add other routes if needed */}
       </Routes>
     </div>

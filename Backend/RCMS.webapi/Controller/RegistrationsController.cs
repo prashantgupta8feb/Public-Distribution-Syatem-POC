@@ -22,7 +22,7 @@
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Registration>>> GetRegistrations()
-        {
+         {
             return await _context.Registrations.ToListAsync();
         }
 

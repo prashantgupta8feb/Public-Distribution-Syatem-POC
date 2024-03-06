@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import './LoginForm.css';
+import { useNavigate } from 'react-router-dom';
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = () => {
@@ -11,6 +12,7 @@ const LoginForm = () => {
   const [loginData, setLoginData] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -38,13 +40,14 @@ const LoginForm = () => {
       
       
       // Redirect or do any further action upon successful login
-      alert(`${response.data.username} successfully logged in!`);
+      //alert(`${response.data.username} successfully logged in!`);
+      navigate('/approve-application');
       setEmail('');
       setPassword('');
       setError('');
     } catch (error) {
       // Handle login error
-      console.log('Login failed:',error);
+      //console.log('Login failed:',error);
       alert('Invalid username or password');
       setError('Invalid username or password');
     }
