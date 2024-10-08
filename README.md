@@ -5,4 +5,4 @@ Under this Application beneficiary can apply for online Ration card application 
 
 ![image](https://github.com/prashantgupta8feb/Public-Distribution-Syatem-POC/blob/Develop/Images/RCMS1.png?raw=true)
 ![image](https://github.com/prashantgupta8feb/Public-Distribution-Syatem-POC/blob/Develop/Images/RCMS2.png?raw=true)
-![image](https://github.com/prashantgupta8feb/Public-Distribution-Syatem-POC/blob/Develop?Images/RCMS3.png?raw=true)
+![image](https://github.com/prashantgupta8feb/Public-Distribution-Syatem-POC/blob/Develop/Images/RCMS3.png?raw=true)
